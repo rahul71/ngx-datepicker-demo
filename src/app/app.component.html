@@ -51,56 +51,30 @@
 
 
 	<div class="row gy-5">
-		<div class="col-6">
-			<div class="p-3">&nbsp;</div>
+		
+		<div class="col-12">
+			<div class="p-12"><strong>Test by typing a date older than today</strong></div>
 		</div>
-		<div class="col-6">
-			<div class="p-3">&nbsp;</div>
-		</div>
-		<div class="col-3">
-			<div class="p-3">
-
-				<input [attr.id]="'txt123'" #calInput
-					[disabled]="disabled"
+		<div class="col-12">
+			<div>
+				uses [(ngModel)]="date1" and DOES NOT with keepDatesOutOfRules:true
+				<input style="width: 200px;" [attr.id]="'date1'" #calInput
 					bsDatepicker type="text" class="form-control"
-					[bsValue]="date3"
+					[(ngModel)]="date1"
 					[minDate]="minDate"
-
-					[attr.required]="required || null"
-					[bsConfig]="{keepDatesOutOfRules: true}">
+					[bsConfig]="{dateInputFormat: 'MM/DD/YYYY', keepDatesOutOfRules: true}">
+				<br>
+				uses [bsValue]="date2" and works with keepDatesOutOfRules:true
+				
+				<input style="width: 200px;" [attr.id]="'date1'" #calInput
+					bsDatepicker type="text" class="form-control"
+					[bsValue]="date2"
+					[minDate]="minDate"
+					[bsConfig]="{dateInputFormat: 'MM/DD/YYYY', keepDatesOutOfRules: true}">
 				<br>
 
-				{{date3}}
-				<br><br>
-				<cal-field
-					[(ngModel)]="date2"
-					(dateChanged)="date2 = $event;ngModelChangeCalled($event)"
-					[minDate]="minDate"
-					[maxDate]="maxDate"
-					[required]="required"></cal-field>
-				{{date2}}
 
-				<form class="form-horizontal" [formGroup]="appForm"
-					(ngSubmit)="onSubmit()"
-					novalidate>
-					<span>Date</span>
-					<cal-field formControlName="calField"
-						[required]="required"></cal-field>
-					<br>
-					<br>
-					<button class="btn btn-primary" type="submit">Submit</button>&nbsp;
-					<button class="btn btn-secondary" type="button" (click)="disabled=!disabled">Disable</button>
-					<button class="btn btn-secondary" type="button" (click)="toggleValidate()">Toggle Required Validate</button>
-
-					<br>
-					required:{{required}}
-					<br>
-					<pre>
-						{{appForm.value | json}}
-					</pre>
-
-
-				</form>
+				
 			</div>
 		</div>
 	</div>
