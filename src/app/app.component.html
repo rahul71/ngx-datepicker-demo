@@ -1,0 +1,120 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+<!-- Toolbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Dropdown link
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+						<li><a class="dropdown-item" href="#">Something else here</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<!--Toolbar-->
+
+<div class="container-fluid">
+
+	<!-- Highlight Card -->
+
+
+	<div class="row gy-5">
+		<div class="col-6">
+			<div class="p-3">&nbsp;</div>
+		</div>
+		<div class="col-6">
+			<div class="p-3">&nbsp;</div>
+		</div>
+		<div class="col-3">
+			<div class="p-3">
+
+				<input [attr.id]="'txt123'" #calInput
+					[disabled]="disabled"
+					bsDatepicker type="text" class="form-control"
+					[bsValue]="date3"
+					[minDate]="minDate"
+
+					[attr.required]="required || null"
+					[bsConfig]="{keepDatesOutOfRules: true}">
+				<br>
+
+				{{date3}}
+				<br><br>
+				<cal-field
+					[(ngModel)]="date2"
+					(dateChanged)="date2 = $event;ngModelChangeCalled($event)"
+					[minDate]="minDate"
+					[maxDate]="maxDate"
+					[required]="required"></cal-field>
+				{{date2}}
+
+				<form class="form-horizontal" [formGroup]="appForm"
+					(ngSubmit)="onSubmit()"
+					novalidate>
+					<span>Date</span>
+					<cal-field formControlName="calField"
+						[required]="required"></cal-field>
+					<br>
+					<br>
+					<button class="btn btn-primary" type="submit">Submit</button>&nbsp;
+					<button class="btn btn-secondary" type="button" (click)="disabled=!disabled">Disable</button>
+					<button class="btn btn-secondary" type="button" (click)="toggleValidate()">Toggle Required Validate</button>
+
+					<br>
+					required:{{required}}
+					<br>
+					<pre>
+						{{appForm.value | json}}
+					</pre>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+	<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+	<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+	<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+	<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+	<router-outlet></router-outlet>

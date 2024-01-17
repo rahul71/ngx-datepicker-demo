@@ -1,0 +1,8 @@
+.disabled,
+.disabled i {
+	cursor: not-allowed;
+}
+
+input.ng-dirty.ng-invalid {
+	border-color: red
+}

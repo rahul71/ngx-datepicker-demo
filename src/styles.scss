@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.bs-datepicker-body table td span.selected,
+.bs-datepicker button:active,
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span[class*="select-"]:after,
+.bs-datepicker-body table td[class*="select-"] span:after,
+.bs-datepicker-body table td.active-week span:hover {
+	background-color: #0d6efd !important;
+	border-radius: 0%;
+}
+
+// li:has(a:active)
+.bs-datepicker-body table td.gridcell span:hover {
+	border-radius: 0%;
+}
+
+// li:has(a:active)
+.bs-datepicker-body table td:not(.disabled):not(.week) span:not(.disabled):not(.is-other-month) {
+	border-radius: 0%;
+}
+
+
+.bs-datepicker-head {
+	background-color: #fff !important;
+
+	.current,
+	.previous,
+	.next {
+		background-color: #fff !important;
+
+		span {
+			color: #54708b;
+		}
+	}
+}
